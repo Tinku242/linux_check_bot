@@ -1,9 +1,10 @@
-from email import message
 import telebot
 from telebot import types
 from dotenv import load_dotenv
 import os
 import time
+import schedule
+
 
 load_dotenv()
 
@@ -47,5 +48,12 @@ def handle_message(message):
     time.sleep(10)
     bot.delete_message(chat_id=message.chat.id, message_id=msg.message_id)
 
+
+next_time = time.time()
+while True:
+    bot.send_message(chat_id=5507592055,
+                     text=f"time interval {time.asctime(time.localtime(time.time()))}")
+    next_time += 60
+    time.sleep(max(0, next_time - time.time()))
 
 bot.polling()
