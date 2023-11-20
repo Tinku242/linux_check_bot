@@ -46,10 +46,13 @@ def main_inline_callback(call):
         docker(call.message.chat.id)
     elif call.data == "docker_ps":
         docker_ps(call.message.chat.id, call.data)
+    elif call.data == "docker_images":
+        docker_images(call.message.chat.id, call.data)
+    elif call.data == "docker_info":
+        docker_info(call.message.chat.id, call.data)
 
 
 #! DOCKER
-
 docker_markup = types.InlineKeyboardMarkup(row_width=2)
 docker_ps = types.InlineKeyboardButton(
     text="docker ps", callback_data="docker_ps")
