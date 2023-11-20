@@ -50,9 +50,11 @@ def handle_message(message):
 
 
 next_time = time.time()
+
+
 while True:
     bot.send_message(chat_id=5507592055,
-                     text=f"time interval {time.asctime(time.localtime(time.time()))}")
+                     text=f"time interval {time.asctime(time.localtime(time.time()))} time {time.localtime()}")
     next_time += 60
     time.sleep(max(0, next_time - time.time()))
 
